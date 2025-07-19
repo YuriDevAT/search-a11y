@@ -1,0 +1,16 @@
+{
+  "name": "search-a11y-backend",
+  "author": "Julia Undeutsch",
+  "license": "ISC",
+  "version": "1.0.0",
+  "description": "Script to fetch accessibility articles from resources you can rely on.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "algoliasearch": "^4.23.3",
+    "dotenv": "^16.4.5",
+    "rss-parser": "^3.13.0"
+  }
+}

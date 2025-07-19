@@ -1,0 +1,62 @@
+body {
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+}
+
+header {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 0.5em;
+}
+
+main {
+  width: 100%;
+}
+
+.ais-Hits-list {
+  margin-top: 20px;
+}
+
+.ais-Hits-item {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.ais-Hits-item:last-child {
+  border-bottom: none;
+}
+
+article h3 {
+  margin: 0 0 5px 0;
+}
+
+article a {
+  color: #005fcc;
+  text-decoration: none;
+}
+
+article a:hover {
+  text-decoration: underline;
+}
+
+article .author,
+article .date {
+  color: #666;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.ais-Highlight-highlighted {
+  background-color: #fff3cd;
+  font-style: normal;
+}
