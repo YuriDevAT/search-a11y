@@ -65,6 +65,14 @@ search.addWidgets([
     },
   }),
 
+  instantsearch.widgets.refinementList({
+    container: '#author-filter-bar',
+    attribute: 'author',
+      templates: {
+      header: '<p>Filter by Author</p>',
+    },
+  }),
+
   instantsearch.widgets.pagination({
     container: '#pagination-full',
     padding: 3,
@@ -73,14 +81,6 @@ search.addWidgets([
   instantsearch.widgets.pagination({
     container: '#pagination-short',
     padding: 1,
-  }),
-
-  instantsearch.widgets.refinementList({
-    container: '#author-filter',
-    attribute: 'author',
-    templates: {
-      header: '<h3>Filter by Author</h3>',
-    },
   }),
 
   instantsearch.widgets.configure({

@@ -41,6 +41,63 @@ h1 {
   margin-bottom: 0.5em;
 }
 
+#author-filter-bar {
+  margin: 20px 0;
+}
+
+.ais-RefinementList-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.ais-RefinementList-item {
+  border: 1px solid var(--light-color);
+  border-radius: 20px;
+  padding: 6px 12px;
+}
+
+.ais-RefinementList-item--selected {
+  background-color: var(--light-color);
+  border-color: var(--highlight-color);
+}
+
+.ais-RefinementList-item--selected .ais-RefinementList-labelText {
+  color: var(--dark-color);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.ais-RefinementList-label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ais-RefinementList-labelText {
+  color: var(--light-color);
+  font-size: 0.9em;
+}
+
+.ais-RefinementList-checkbox {
+  display: none;
+}
+
+span.ais-RefinementList-count {
+  background-color: var(--light-color);
+  border: none;
+  color: var(--dark-color);
+}
+
+.ais-RefinementList-item--selected span.ais-RefinementList-count {
+  border: 1px solid var(--dark-color);
+}
+
 article a {
   color: var(--dark-color);
   text-decoration-thickness: 3px;
@@ -57,6 +114,7 @@ article a:focus {
 
 article h2 {
 font-size: 1.5rem;
+line-height: 1.3;
 }
 
 article .hit-content {
@@ -140,68 +198,12 @@ mark.ais-Highlight-highlighted, mark.ais-Snippet-highlighted {
   padding: 0;
 }
 
-.ais-RefinementList-checkbox {
-  margin-right: 8px;
-}
-
-.ais-RefinementList-count {
-  background-color: var(--light-color);
-  border-radius: 4px;
-  color: var(--dark-color);
-  font-size: 0.8em;
-  padding: 2px 6px;
-}
-
-.ais-RefinementList-header {
-  border-bottom: 1px solid var(--light-color);
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-}
-
-.ais-RefinementList-header h3 {
-  font-size: 1.1em;
-  margin: 0;
-}
-
-.ais-RefinementList-item {
-  margin-bottom: 8px;
-}
-
-.ais-RefinementList-item--selected .ais-RefinementList-labelText {
-  font-weight: bold;
-}
-
-.ais-RefinementList-label {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.ais-RefinementList-labelText {
-  font-size: 0.9em;
-}
-
-.ais-RefinementList-list {
-  list-style: none;
-  padding: 0;
-}
-
 #pagination-full {
   display: block;
 }
 
 #pagination-short {
   display: none;
-}
-
-.left-panel {
-  flex: 1;
-  min-width: 200px;
-}
-
-.right-panel {
-  flex: 3;
 }
 
 @media (max-width: 768px) {
