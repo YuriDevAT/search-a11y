@@ -1,6 +1,14 @@
+:root {
+  --light-color: #00FFFE;
+  --dark-color: #340458;
+  --highlight-color: #004D4D;
+}
+
 body {
-  color: #333;
+  background-color: var(--dark-color);
+  color: var(--dark-color);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
   line-height: 1.6;
   margin: 0 auto;
   max-width: 800px;
@@ -8,26 +16,70 @@ body {
 }
 
 header {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--light-color);
+  color: var(--light-color);
   margin-bottom: 40px;
   padding-bottom: 20px;
   text-align: center;
+}
+
+header a {
+  color: var(--light-color);
+}
+
+#searchbox {
+  margin: 20px auto;
+}
+
+.ais-SearchBox-input:focus {
+  border: none;
+  outline: 2px solid var(--dark-color) !important;
+  outline-offset: -4px;
 }
 
 h1 {
   margin-bottom: 0.5em;
 }
 
-main {
-  width: 100%;
+article a {
+  color: var(--dark-color);
+  text-decoration-thickness: 3px;
 }
 
-.ais-Hits-list {
-  margin-top: 20px;
+article a:hover {
+  text-decoration: underline;
+}
+
+article a:focus {
+  outline: 2px solid var(--dark-color);
+  outline-offset: 4px;
+}
+
+article h2 {
+font-size: 1.5rem;
+}
+
+article .hit-content {
+  font-size: 1.1rem;
+  line-height: 1.3;
+  margin: 10px 0;
+}
+
+article .author, article .date {
+  color: var(--dark-color);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+mark.ais-Highlight-highlighted, mark.ais-Snippet-highlighted {
+  background-color: var(--light-color);
+  color: var(--highlight-color);
+  font-weight: bold;
 }
 
 .ais-Hits-item {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--light-color);
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
@@ -36,27 +88,128 @@ main {
   border-bottom: none;
 }
 
-article h3 {
-  margin: 0 0 5px 0;
+.ais-Hits-list {
+  margin-top: 20px;
 }
 
-article a {
-  color: #005fcc;
-  text-decoration: none;
+.ais-Pagination {
+  margin-top: 40px;
 }
 
-article a:hover {
+.ais-Pagination-item {
+  margin: 0 4px;
+}
+
+.ais-Pagination-item--disabled .ais-Pagination-link {
+  background-color: var(--light-color);
+  color: var(--light-color);
+  cursor: not-allowed;
+}
+
+.ais-Pagination-item--selected .ais-Pagination-link {
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+  color: var(--dark-color);
+  font-weight: bold;
   text-decoration: underline;
 }
 
-article .author,
-article .date {
-  color: #666;
-  font-size: 0.9em;
+.ais-Pagination-link {
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  color: var(--dark-color);
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.ais-Pagination-link:hover {
+  background-color: var(--light-color);
+}
+
+.ais-Pagination-link:focus {
+  outline: 2px solid var(--light-color);
+  outline-offset: 2px;
+}
+
+.ais-Pagination-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.ais-RefinementList-checkbox {
+  margin-right: 8px;
+}
+
+.ais-RefinementList-count {
+  background-color: var(--light-color);
+  border-radius: 4px;
+  color: var(--dark-color);
+  font-size: 0.8em;
+  padding: 2px 6px;
+}
+
+.ais-RefinementList-header {
+  border-bottom: 1px solid var(--light-color);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.ais-RefinementList-header h3 {
+  font-size: 1.1em;
   margin: 0;
 }
 
-.ais-Highlight-highlighted {
-  background-color: #fff3cd;
-  font-style: normal;
+.ais-RefinementList-item {
+  margin-bottom: 8px;
+}
+
+.ais-RefinementList-item--selected .ais-RefinementList-labelText {
+  font-weight: bold;
+}
+
+.ais-RefinementList-label {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ais-RefinementList-labelText {
+  font-size: 0.9em;
+}
+
+.ais-RefinementList-list {
+  list-style: none;
+  padding: 0;
+}
+
+#pagination-full {
+  display: block;
+}
+
+#pagination-short {
+  display: none;
+}
+
+.left-panel {
+  flex: 1;
+  min-width: 200px;
+}
+
+.right-panel {
+  flex: 3;
+}
+
+@media (max-width: 768px) {
+  #pagination-full {
+    display: none;
+  }
+
+  #pagination-short {
+    display: block;
+  }
 }

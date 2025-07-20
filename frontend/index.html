@@ -19,7 +19,19 @@
   </header>
 
   <main>
-    <div id="hits"></div>
+    <div class="container">
+      <div class="search-panel">
+        <div class="left-panel">
+          <div id="author-filter"></div>
+        </div>
+    
+        <div class="search-panel__results">
+          <div id="hits"></div>
+          <div id="pagination-full"></div>
+          <div id="pagination-short"></div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.23.3/dist/algoliasearch-lite.umd.js"></script>

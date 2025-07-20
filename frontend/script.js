@@ -12,20 +12,51 @@ search.addWidgets([
   instantsearch.widgets.searchBox({
     container: '#searchbox', 
     placeholder: 'Search for articles about ARIA, screen readers, etc.',
+    searchAsYouType: false,
   }),
 
   instantsearch.widgets.hits({
     container: '#hits',
+    transformItems(items) {
+      return items.map(item => {
+        let formattedDate = '';
+
+        if (item.pubDate) {
+          const dateObject = new Date(item.pubDate);
+          
+          if (!isNaN(dateObject.getTime())) {
+            formattedDate = dateObject.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            });
+          }
+        }
+        
+        return {
+          ...item,
+          formattedDate,
+        };
+      });
+    },
     templates: {
       item: `
         <article>
-          <a href="{{link}}" target="_blank" rel="noopener noreferrer">
-            <h3>
+          <a href="{{link}}">
+            <h2>
               {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}
-            </h3>
+            </h2>
           </a>
+          <div class="hit-content">
+            {{#helpers.snippet}}{
+              "attribute": "content",
+              "highlightedTagName": "mark"
+            }{{/helpers.snippet}}
+          </div>
           <p class="author">By {{author}}</p>
-          <p class="date">Published on: ${new Date('{{pubDate}}').toLocaleDateString()}</p>
+          {{#formattedDate}}
+              <p class="date">Published: {{formattedDate}}</p>
+            {{/formattedDate}}
         </article>
       `,
       empty: `
@@ -34,8 +65,26 @@ search.addWidgets([
     },
   }),
 
+  instantsearch.widgets.pagination({
+    container: '#pagination-full',
+    padding: 3,
+  }),
+  
+  instantsearch.widgets.pagination({
+    container: '#pagination-short',
+    padding: 1,
+  }),
+
+  instantsearch.widgets.refinementList({
+    container: '#author-filter',
+    attribute: 'author',
+    templates: {
+      header: '<h3>Filter by Author</h3>',
+    },
+  }),
+
   instantsearch.widgets.configure({
-    hitsPerPage: 20,
+    hitsPerPage: 10,
   }),
 ]);
 
