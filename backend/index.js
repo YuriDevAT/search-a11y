@@ -3,21 +3,7 @@ require('dotenv').config();
 const algoliasearch = require('algoliasearch');
 const Parser = require('rss-parser');
 const { trimHTML } = require('./utils.js');
-
-const FEEDS_TO_PARSE = [
-    { author: 'Adrian Roselli', url: 'http://adrianroselli.com/feed' },
-    { author: 'Ahmad Shadeed', url: 'https://ishadeed.com/feed.xml' },
-    { author: 'Smashing Magazine', url: 'https://www.smashingmagazine.com/feed' },
-    { author: 'Eric Eggert', url: 'https://yatil.net/feed.xml' },
-    { author: 'Julia Undeutsch', url: 'https://accessibilityfirst.at/feed' },
-    { author: 'Léonie Watson', url: 'https://tink.uk/feed.xml' },
-    { author: 'Makoto Ueki', url: 'https://weba11y.jp/news/feed' },
-    { author: 'Manuel Matuzović', url: 'https://matuzo.at/feed.xml' },
-    { author: 'Paul J. Adam', url: 'https://pauljadam.com/feed' },
-    { author: 'Sara Soueidan', url: 'https://www.sarasoueidan.com/feed.xml' }, 
-    { author: 'Scott OHara', url: 'https://www.scottohara.me/feed' },
-    { author: 'Steve Faulkner', url: 'https://html5accessibility.com/stuff/feed' },
-];
+const FEEDS_TO_PARSE = require('./config/feeds.js');
 
 const ALGOLIA_APP_ID = process.env.ALGOLIA_APP_ID;
 const ALGOLIA_ADMIN_KEY = process.env.ALGOLIA_ADMIN_API_KEY;
