@@ -1,0 +1,5 @@
+const ALGOLIA_CONFIG = {
+  APP_ID: 'PASTE_YOUR_APP_ID_HERE',
+  SEARCH_ONLY_API_KEY: 'PASTE_YOUR_SEARCH_ONLY_KEY_HERE',
+  INDEX_NAME: 'accessibility_articles'
+};

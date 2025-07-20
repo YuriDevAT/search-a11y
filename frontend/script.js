@@ -1,10 +1,10 @@
 const searchClient = algoliasearch(
-  'YOUR_ALGOLIA_APP_ID',
-  'ecc1d987423e274c0777a83e02ef8f5e'
+  ALGOLIA_CONFIG.ALGOLIA_APP_ID,
+  ALGOLIA_CONFIG.ALGOLIA_SEARCH_API_KEY
 );
 
 const search = instantsearch({
-  indexName: 'accessibility_articles', 
+  indexName: ALGOLIA_CONFIG.ALGOLIA_INDEX_NAME, 
   searchClient,
 });
 
@@ -35,7 +35,7 @@ search.addWidgets([
   }),
 
   instantsearch.widgets.configure({
-    hitsPerPage: 8,
+    hitsPerPage: 20,
   }),
 ]);
 
