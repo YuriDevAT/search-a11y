@@ -27,17 +27,15 @@ const widgets = [
         const query = data.query;
         const plural = count === 1 ? '' : 's';
 
-        let content;
         if (query) {
           if (count === 0) {
-            content = `No articles found for "${query}".`;
+            return `No articles found for "${query}".`;
           } else {
-          content = html`${count} article${plural} found for <i>${query}</i>`;
+          return html`${count} article${plural} found for <i>${query}</i>`;
           }
         } else {
-          content = `${count} article${plural} in the index.`;
+          return`${count} article${plural} in the index.`;
         }
-        return `<h2>${content}</h2>`;
       },
     },
   }),

@@ -6,6 +6,7 @@ const customRefinementList = instantsearch.connectors.connectRefinementList(
     if (isFirstRender) {
       const list = document.createElement('ul');
       list.classList.add('custom-refinement-list');
+      list.setAttribute('aria-labelledby', 'author-filter-header');
 
       list.addEventListener('click', event => {
         const button = event.target.closest('.custom-refinement-item');
@@ -26,7 +27,7 @@ const customRefinementList = instantsearch.connectors.connectRefinementList(
           data-value="${item.value}"
         >
           <span class="custom-refinement-label">${item.label}</span>
-          <span class="custom-refinement-count">${item.count}</span>
+          <span class="custom-refinement-count">${item.count} <span class="sr-only">articles</span></span>
         </button>
       </li>
     `).join('');
