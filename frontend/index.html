@@ -12,27 +12,35 @@
 <body>
 
   <header>
-    <h1>SearchA11y</h1>
+    <h1><img src="logo.svg" alt="SearchA11y" width="500" height="130" /></h1>
     <p>A unified search for accessibility content from the greatest, like Adrian Roselli, Manuel Matuzović, Sara Soueidan, Léonie Watson, and more.</p>
 
-    <div id="searchbox"></div>
+    <div id="custom-searchbox-container">
+      <label for="main-search-input">Search for articles about ARIA, screen readers, etc.</label>
+    </div>
   </header>
 
   <main>
-    <div id="searchbox"></div>
-    <div id="author-filter-bar"></div>
+    <div id="author-filter-bar">
+      <p id="author-filter-header">Filter by Author</p>
+      <div id="author-list-container"></div>
+    </div>
     <div id="hits"></div>
     <div id="pagination-full"></div>
     <div id="pagination-short"></div>
 
   </main>
+  <footer>
+    <p>&copy 2025. SearchA11y is a project by <a href="https://juliaundeutsch.com">Julia Undeutsch</a>.</p>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.23.3/dist/algoliasearch-lite.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.69.0/dist/instantsearch.production.min.js"></script>
 
-  <script src="config.js"></script>
-
-  <script src="script.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/widgets/customSearchBox.js"></script>
+  <script src="js/widgets/customRefinementList.js"></script>
+  <script src="js/app.js"></script>
 
 </body>
 

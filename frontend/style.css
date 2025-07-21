@@ -7,8 +7,11 @@
 body {
   background-color: var(--dark-color);
   color: var(--dark-color);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-family: "Cabin",
+    Trebuchet,
+    "Trebuchet MS",
+    sans-serif;
+  font-size: 18px;
   line-height: 1.6;
   margin: 0 auto;
   max-width: 800px;
@@ -27,76 +30,135 @@ header a {
   color: var(--light-color);
 }
 
-#searchbox {
-  margin: 20px auto;
+h1 {
+  margin-bottom: 0.5em;
 }
 
-.ais-SearchBox-input:focus {
+h1 img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ############################
+* ###### Searchbox Styles ###### 
+###########################*/
+
+#custom-searchbox-container {
+  margin: 60px auto 30px;
+  text-align: left;
+}
+
+#custom-searchbox-container label {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.custom-search-input {
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  box-sizing: border-box;
+  color: var(--dark-color);
+  font-size: 1.5em;
+  padding: 20px 15px;
+  width: 100%;
+}
+
+.custom-search-input:focus {
   border: none;
   outline: 2px solid var(--dark-color) !important;
   outline-offset: -4px;
 }
 
-h1 {
-  margin-bottom: 0.5em;
-}
+/* ############################
+* ###### Filter Styles ###### 
+###########################*/
 
 #author-filter-bar {
+  border-bottom: 1px solid var(--light-color);
+  color: var(--light-color);
   margin: 20px 0;
+  padding-bottom: 20px;
 }
 
-.ais-RefinementList-list {
+#author-filter-header {
+  font-size: 1.1em;
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+
+.custom-refinement-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 8px 12px;
   justify-content: center;
   list-style: none;
   padding: 0;
 }
 
-.ais-RefinementList-item {
+.custom-refinement-item {
+  align-items: center;
+  background-color: var(--dark-color);
   border: 1px solid var(--light-color);
   border-radius: 20px;
-  padding: 6px 12px;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 1.1em;
+  justify-content: space-between;
+  padding: 8px 12px;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
-.ais-RefinementList-item--selected {
+.custom-refinement-item:hover {
+  border-color: var(--dark-color);
+}
+
+.custom-refinement-item:focus {
+  outline: 1px solid var(--light-color);
+  outline-offset: 1px;
+}
+
+.custom-refinement-item.selected {
   background-color: var(--light-color);
   border-color: var(--highlight-color);
 }
 
-.ais-RefinementList-item--selected .ais-RefinementList-labelText {
+.custom-refinement-item.selected:hover {
+  outline: 1px solid var(--highlight-color);
+  outline-offset: -4px;
+}
+
+.custom-refinement-item.selected .custom-refinement-label {
   color: var(--dark-color);
   font-weight: bold;
   text-decoration: underline;
 }
 
-.ais-RefinementList-label {
-  align-items: center;
+.custom-refinement-label {
+  color: var(--light-color);
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
+  font-size: 0.8em;
   width: 100%;
 }
 
-.ais-RefinementList-labelText {
-  color: var(--light-color);
-  font-size: 0.9em;
-}
-
-.ais-RefinementList-checkbox {
-  display: none;
-}
-
-span.ais-RefinementList-count {
+.custom-refinement-count {
   background-color: var(--light-color);
   border: none;
+  border-radius: 10px;
   color: var(--dark-color);
+  font-size: 0.8em;
+  margin-left: 8px;
+  padding: 1px 8px;
 }
 
-.ais-RefinementList-item--selected span.ais-RefinementList-count {
+.custom-refinement-item.selected .custom-refinement-count {
   border: 1px solid var(--dark-color);
 }
+
+/* ############################
+* ###### Article Styles ###### 
+###########################*/
 
 article a {
   color: var(--dark-color);
@@ -146,9 +208,13 @@ mark.ais-Highlight-highlighted, mark.ais-Snippet-highlighted {
   border-bottom: none;
 }
 
-.ais-Hits-list {
-  margin-top: 20px;
+ol.ais-Hits-list {
+  margin-top: 40px;
 }
+
+/* ############################
+* ###### Pagination Styles ###### 
+###########################*/
 
 .ais-Pagination {
   margin-top: 40px;
@@ -214,4 +280,22 @@ mark.ais-Highlight-highlighted, mark.ais-Snippet-highlighted {
   #pagination-short {
     display: block;
   }
+}
+
+/* ############################
+* ###### Footer Styles ###### 
+###########################*/
+
+footer {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  font-size: 0.9em;
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+footer a {
+  color: var(--light-color);
+  text-decoration: underline;
 }

@@ -8,84 +8,59 @@ const search = instantsearch({
   searchClient,
 });
 
-search.addWidgets([
-  instantsearch.widgets.searchBox({
-    container: '#searchbox', 
-    placeholder: 'Search for articles about ARIA, screen readers, etc.',
-    searchAsYouType: false,
+const widgets = [
+  customSearchBox({
+    container: '#custom-searchbox-container',
   }),
-
+  customRefinementList({
+    container: '#author-list-container',
+    attribute: 'author',
+    sortBy: ['name:asc'],
+  }),
   instantsearch.widgets.hits({
     container: '#hits',
     transformItems(items) {
       return items.map(item => {
         let formattedDate = '';
-
         if (item.pubDate) {
           const dateObject = new Date(item.pubDate);
-          
           if (!isNaN(dateObject.getTime())) {
             formattedDate = dateObject.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
+              year: 'numeric', month: 'long', day: 'numeric',
             });
           }
         }
-        
-        return {
-          ...item,
-          formattedDate,
-        };
+        return { ...item, formattedDate };
       });
     },
     templates: {
       item: `
         <article>
           <a href="{{link}}">
-            <h2>
-              {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}
-            </h2>
+            <h2>{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</h2>
           </a>
           <div class="hit-content">
-            {{#helpers.snippet}}{
-              "attribute": "content",
-              "highlightedTagName": "mark"
-            }{{/helpers.snippet}}
+            {{#helpers.snippet}}{ "attribute": "content", "highlightedTagName": "mark" }{{/helpers.snippet}}
           </div>
           <p class="author">By {{author}}</p>
-          {{#formattedDate}}
-              <p class="date">Published: {{formattedDate}}</p>
-            {{/formattedDate}}
+          {{#formattedDate}}<p class="date">Published: {{formattedDate}}</p>{{/formattedDate}}
         </article>
       `,
-      empty: `
-        No results have been found for <strong>{{query}}</strong>.
-      `,
+      empty: `No results have been found for <strong>{{query}}</strong>.`,
     },
   }),
-
-  instantsearch.widgets.refinementList({
-    container: '#author-filter-bar',
-    attribute: 'author',
-      templates: {
-      header: '<p>Filter by Author</p>',
-    },
-  }),
-
   instantsearch.widgets.pagination({
     container: '#pagination-full',
     padding: 3,
   }),
-  
   instantsearch.widgets.pagination({
     container: '#pagination-short',
     padding: 1,
   }),
-
   instantsearch.widgets.configure({
     hitsPerPage: 10,
   }),
-]);
+];
 
+search.addWidgets(widgets);
 search.start();
