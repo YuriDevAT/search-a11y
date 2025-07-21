@@ -43,6 +43,11 @@ h1 img {
 * ###### Searchbox Styles ###### 
 ###########################*/
 
+.custom-searchbox-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
 #custom-searchbox-container {
   margin: 60px auto 30px;
   text-align: left;
@@ -60,7 +65,7 @@ h1 img {
   box-sizing: border-box;
   color: var(--dark-color);
   font-size: 1.5em;
-  padding: 20px 15px;
+  padding: 20px 60px;
   width: 100%;
 }
 
@@ -68,6 +73,41 @@ h1 img {
   border: none;
   outline: 2px solid var(--dark-color) !important;
   outline-offset: -4px;
+}
+
+.clear-button,
+.search-button {
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--dark-color);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.search-button:hover,
+.clear-button:hover {
+  background-color: var(--light-color);
+  border-radius: 50%;
+}
+
+.search-button:focus,
+.clear-button:focus {
+  outline: 2px solid var(--dark-color);
+  border-radius: 50%;
+}
+
+.search-button {
+  left: 10px;
+}
+
+.clear-button {
+  display: none;
+  right: 20px;
 }
 
 /* ############################
@@ -157,6 +197,21 @@ h1 img {
 }
 
 /* ############################
+* ###### Stats Styles ###### 
+###########################*/
+
+#stats-container {
+  color: var(--light-color);
+  font-size: 1em;
+  margin: 20px 0;
+}
+
+#stats-container i {
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* ############################
 * ###### Article Styles ###### 
 ###########################*/
 
@@ -174,7 +229,7 @@ article a:focus {
   outline-offset: 4px;
 }
 
-article h2 {
+article h3 {
 font-size: 1.5rem;
 line-height: 1.3;
 }

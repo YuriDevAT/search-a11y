@@ -8,6 +8,8 @@ const search = instantsearch({
   searchClient,
 });
 
+let searchWasSubmitted = false;
+
 const widgets = [
   customSearchBox({
     container: '#custom-searchbox-container',
@@ -17,8 +19,44 @@ const widgets = [
     attribute: 'author',
     sortBy: ['name:asc'],
   }),
+  instantsearch.widgets.stats({
+    container: '#stats-container',
+    templates: {
+      text(data, { html }) {
+        const count = data.nbHits;
+        const query = data.query;
+        const plural = count === 1 ? '' : 's';
+
+        let content;
+        if (query) {
+          if (count === 0) {
+            content = `No articles found for "${query}".`;
+          } else {
+          content = html`${count} article${plural} found for <i>${query}</i>`;
+          }
+        } else {
+          content = `${count} article${plural} in the index.`;
+        }
+        return `<h2>${content}</h2>`;
+      },
+    },
+  }),
   instantsearch.widgets.hits({
     container: '#hits',
+    templates: {
+      item: `
+        <article>
+          <a href="{{link}}">
+            <h3>{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</h3>
+          </a>
+          <div class="hit-content">
+            {{#helpers.snippet}}{ "attribute": "content", "highlightedTagName": "mark" }{{/helpers.snippet}}
+          </div>
+          <p class="author">By {{author}}</p>
+          {{#formattedDate}}<p class="date">Published: {{formattedDate}}</p>{{/formattedDate}}
+        </article>
+      `,
+    },
     transformItems(items) {
       return items.map(item => {
         let formattedDate = '';
@@ -32,21 +70,6 @@ const widgets = [
         }
         return { ...item, formattedDate };
       });
-    },
-    templates: {
-      item: `
-        <article>
-          <a href="{{link}}">
-            <h2>{{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</h2>
-          </a>
-          <div class="hit-content">
-            {{#helpers.snippet}}{ "attribute": "content", "highlightedTagName": "mark" }{{/helpers.snippet}}
-          </div>
-          <p class="author">By {{author}}</p>
-          {{#formattedDate}}<p class="date">Published: {{formattedDate}}</p>{{/formattedDate}}
-        </article>
-      `,
-      empty: `No results have been found for <strong>{{query}}</strong>.`,
     },
   }),
   instantsearch.widgets.pagination({
