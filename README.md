@@ -1,7 +1,5 @@
 # searchA11y
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e17882c3-e6f0-44cc-88fd-1ecc8d1d2975/deploy-status)](https://app.netlify.com/projects/searcha11y/deploys)
-
 **A high-performance, unified search engine for discovering content from leading web accessibility specialists.**
 
 This application aggregates articles and blog posts from a curated list of world-renowned accessibility experts, providing a single, powerful interface to search through their collective knowledge. For many of these valuable resources, this tool provides a much-needed search functionality that was previously unavailable.
@@ -19,7 +17,7 @@ The search experience is powered by [**Algolia**](https://www.algolia.com/), del
 
 ## Project Structure
 
-This project is a "monorepo" containing two separate applications:
+This project contains two separate applications:
 
 *   `frontend/`: A simple, performant user interface built with HTML, CSS, and vanilla JavaScript.
 *   `backend/`: A Node.js script responsible for fetching, parsing, and indexing the article data into Algolia.
