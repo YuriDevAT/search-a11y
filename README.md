@@ -2,6 +2,8 @@
 
 **A high-performance, unified search engine for discovering content from leading web accessibility specialists.**
 
+![](https://github.com/YuriDevAT/search-a11y/blob/main/frontend/logo.svg)
+
 This application aggregates articles and blog posts from a curated list of world-renowned accessibility experts, providing a single, powerful interface to search through their collective knowledge. For many of these valuable resources, this tool provides a much-needed search functionality that was previously unavailable.
 
 The search experience is powered by [**Algolia**](https://www.algolia.com/), delivering instant, typo-tolerant results and an intelligent, user-friendly interface.
