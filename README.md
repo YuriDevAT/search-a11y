@@ -8,6 +8,9 @@ This application aggregates articles and blog posts from a curated list of world
 
 The search experience is powered by [**Algolia**](https://www.algolia.com/), delivering instant, typo-tolerant results and an intelligent, user-friendly interface.
 
+> [!IMPORTANT]
+> The application is still in progress and not Screen Reader accessible at its current state.
+
 ## Features
 
 - **Unified Search:** Instantly search across articles from multiple authors in one place.
