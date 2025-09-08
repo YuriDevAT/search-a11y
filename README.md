@@ -1,3 +1,6 @@
+![Open Source Love](https://img.shields.io/badge/open%20soure-%F0%9F%92%9F-blueviolet?style=flat-square)
+[![License: ISC](https://img.shields.io/badge/License-ISC-green.svg)](https://opensource.org/licenses/ISC)
+
 # searchA11y
 
 **A high-performance, unified search engine for discovering content from leading web accessibility specialists.**
@@ -128,3 +131,7 @@ To enable it:
 ## License
 
 This project is licensed under the ISC License - see the [LICENSE](https://github.com/YuriDevAT/search-a11y/blob/main/LICENSE.md) file for details.
+
+## Contribution
+
+To contribute to this project, please read through the [CONTRIBUTING](https://github.com/YuriDevAT/search-a11y/blob/main/CONTRIBUTING.md).
