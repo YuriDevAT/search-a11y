@@ -53,7 +53,7 @@ npm install
 Run the project:
 
 ```
-npm start
+npm run start
 ```
 
 Now create a branch using the `git checkout -b` command:
